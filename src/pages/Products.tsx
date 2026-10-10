@@ -18,7 +18,8 @@ export default function Products() {
         return response.json();
       })
       .then((data) => {
-        setProducts(data);
+        const sortedData = data.sort((a: Product, b: Product) => a.id - b.id);
+        setProducts(sortedData);
         setLoadung(false);
       })
       .catch((error) => {

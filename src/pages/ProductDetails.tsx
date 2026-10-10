@@ -74,10 +74,10 @@ export default function ProductDetailsPage() {
           <img
             src={selectedProduct.image}
             alt={selectedProduct.name}
-            className="w-20 h-16 rounded-lg"
+            className="w-28 h-20 rounded-lg"
           />
         )}
-        <button className="p-2 rounded-lg mt-4 bg-amber-300">
+        <button className="px-4 py-2 rounded-lg mt-4 bg-amber-300 font-semibold">
           Add To Cart
         </button>
       </div>
