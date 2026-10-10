@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import type { Product } from "./types/productTypes";
-import ProductCard from "./components/ProductCard";
+import ProductCard from "../components/ProductCard";
+import type { Product } from "../types/productTypes";
 
-function App() {
+export default function Products() {
   const [products, setProducts] = useState<Product[] | null>(null);
   const [loading, setLoadung] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -36,20 +36,19 @@ function App() {
   if (error) {
     return <div>Error: {error}</div>;
   }
+
   return (
-    <>
+    <div className="p-3">
       <div>
-        <h1>Product List</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <p className="text-2xl font-bold text-center bg-gray-200 py-3">
+          Product List
+        </p>
+        <div className="flex items-center gap-4 mt-5">
           {products?.map((product) => (
             <ProductCard key={product.id} {...product} />
           ))}
-        </div>  
+        </div>
       </div>
-
-      <p className="text-5xl">Hello</p>
-    </>
+    </div>
   );
 }
-
-export default App;
